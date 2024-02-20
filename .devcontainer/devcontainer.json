@@ -1,0 +1,25 @@
+{
+	"name": "devcontainer",
+	"dockerComposeFile": [
+		"docker-compose.yml"
+	],
+	"service": "magiconion",
+	"workspaceFolder": "/workspace",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-azuretools.vscode-docker",
+				"ms-dotnettools.csharp",
+				"mhutchie.git-graph",
+				"ms-dotnettools.csdevkit",
+				"mechatroner.rainbow-csv",
+				"csharpier.csharpier-vscode",
+				"donjayamanne.githistory",
+				"VisualStudioExptTeam.vscodeintellicode",
+				"VisualStudioExptTeam.vscodeintellicode-completions",
+				"ZainChen.json"
+			],
+			"settings": {}
+		}
+	}
+}

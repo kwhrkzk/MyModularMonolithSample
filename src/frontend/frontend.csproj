@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Grpc.AspNetCore" Version="2.60.0" />
+    <PackageReference Include="MagicOnion" Version="6.0.0" />
+    <PackageReference Include="MagicOnion.Client" Version="6.0.0" />
+    <PackageReference Include="MagicOnion.Server" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\modularA\modularA.csproj" />
+    <ProjectReference Include="..\shared.modularA\shared.modularA.csproj" />
+    <ProjectReference Include="..\shared.modularB\shared.modularB.csproj" />
+    <ProjectReference Include="..\modularB\modularB.csproj" />
+  </ItemGroup>
+
+</Project>

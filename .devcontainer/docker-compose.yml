@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  magiconion:
+    build: .
+    ports:
+      - "5000:5000"
+      - "5001:5001"
+      - "5002:5002"
+    volumes:
+      - ../src:/workspace
+    tty: true
+    stdin_open: true
+    container_name: magiconion
+    working_dir: /workspace
+    command:
+      - /bin/sh
+      - -c
+      - |
+        dotnet dev-certs https --trust
+        /bin/bash

@@ -1,0 +1,36 @@
+﻿@page "/"
+@rendermode InteractiveServer
+
+<PageTitle>MyModularMonolith Sample</PageTitle>
+
+<p role="status">Usecase A Result: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="UsecaseA">Modular Usecase A</button>
+
+@code {
+    private int currentCount = 1;
+
+    private async Task UsecaseA()
+    {
+        var channel = GrpcChannel.ForAddress("http://localhost:5000");
+        var client = MagicOnionClient.Create<IModularAUsecase>(channel);
+        var result = await client.Usecase1Async(currentCount, "usecase1");
+        currentCount = result.I;
+    }
+}
+
+<p role="status">Usecase B Result: @str</p>
+
+<button class="btn btn-primary" @onclick="UsecaseB">Modular Usecase B</button>
+
+@code {
+    private string str = "default";
+
+    private async Task UsecaseB()
+    {
+        var channel = GrpcChannel.ForAddress("http://localhost:5000");
+        var client = MagicOnionClient.Create<IModularBUsecase>(channel);
+        var result = await client.Usecase2Async("usecase2", 0);
+        str = result.S;
+    }
+}
